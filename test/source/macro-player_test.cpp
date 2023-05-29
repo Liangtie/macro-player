@@ -1,11 +1,3 @@
 #include <string>
 
-#include "macro-player/macro-player.hpp"
-
 #include <catch2/catch_test_macros.hpp>
-
-TEST_CASE("Name is macro-player", "[library]")
-{
-  auto const exported = exported_class {};
-  REQUIRE(std::string("macro-player") == exported.name());
-}
