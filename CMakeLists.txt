@@ -12,6 +12,7 @@ project(
 
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
+include(cmake/link_qt.cmake)
 
 # ---- Declare library ----
 add_library(
@@ -57,7 +58,7 @@ target_include_directories(
 target_compile_features(macro-player_macro-player PUBLIC cxx_std_20)
 
 find_package(fmt REQUIRED)
-target_link_libraries(macro-player_macro-player PRIVATE fmt::fmt)
+target_link_libraries(macro-player_macro-player PRIVATE fmt::fmt ${QT_LIBRARIES})
 
 # ---- Install rules ----
 if(NOT CMAKE_SKIP_INSTALL_RULES)
