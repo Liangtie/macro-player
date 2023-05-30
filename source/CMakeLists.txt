@@ -6,6 +6,7 @@ PRIVATE
 ./MacroCompiler.cpp
 ./MacroRecorder.cpp
 ./macro_player.cpp
+./macro_recorder.cpp
 ./Recorder.cpp
 ./stdafx.cpp
 )
