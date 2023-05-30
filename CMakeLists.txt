@@ -16,25 +16,25 @@ include(cmake/link_qt.cmake)
 
 # ---- Declare library ----
 add_library(
-  macro-player_macro-player
-  source/macro_player.cpp
+  macro-player
 )
-add_library(macro-player::macro-player ALIAS macro-player_macro-player)
+add_library(macro-player::macro-player ALIAS macro-player)
+add_subdirectory(source)
 
 include(GenerateExportHeader)
 generate_export_header(
-  macro-player_macro-player
+  macro-player
   BASE_NAME macro-player
   EXPORT_FILE_NAME export/macro-player/macro-player_export.hpp
   CUSTOM_CONTENT_FROM_VARIABLE pragma_suppress_c4251
 )
 
 if(NOT BUILD_SHARED_LIBS)
-  target_compile_definitions(macro-player_macro-player PUBLIC MACRO_PLAYER_STATIC_DEFINE)
+  target_compile_definitions(macro-player PUBLIC MACRO_PLAYER_STATIC_DEFINE)
 endif()
 
 set_target_properties(
-  macro-player_macro-player PROPERTIES
+  macro-player PROPERTIES
   CXX_VISIBILITY_PRESET hidden
   VISIBILITY_INLINES_HIDDEN YES
   VERSION "${PROJECT_VERSION}"
@@ -44,21 +44,21 @@ set_target_properties(
 )
 
 target_include_directories(
-  macro-player_macro-player ${warning_guard}
+  macro-player ${warning_guard}
   PUBLIC
   "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
 )
 
 target_include_directories(
-  macro-player_macro-player SYSTEM
+  macro-player SYSTEM
   PUBLIC
   "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/export>"
 )
 
-target_compile_features(macro-player_macro-player PUBLIC cxx_std_20)
+target_compile_features(macro-player PUBLIC cxx_std_20)
 
 find_package(fmt REQUIRED)
-target_link_libraries(macro-player_macro-player PRIVATE fmt::fmt ${QT_LIBRARIES})
+target_link_libraries(macro-player PRIVATE fmt::fmt ${QT_LIBRARIES})
 
 # ---- Install rules ----
 if(NOT CMAKE_SKIP_INSTALL_RULES)

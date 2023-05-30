@@ -1,0 +1,11 @@
+target_sources(
+macro-player
+PRIVATE
+./Emulator.cpp
+./Hooks.cpp
+./MacroCompiler.cpp
+./MacroRecorder.cpp
+./macro_player.cpp
+./Recorder.cpp
+./stdafx.cpp
+)

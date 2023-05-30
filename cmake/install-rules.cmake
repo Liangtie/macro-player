@@ -1,8 +1,8 @@
 if(PROJECT_IS_TOP_LEVEL)
-  set(
-      CMAKE_INSTALL_INCLUDEDIR "include/macro-player-${PROJECT_VERSION}"
-      CACHE PATH ""
-  )
+    set(
+        CMAKE_INSTALL_INCLUDEDIR "include/macro-player-${PROJECT_VERSION}"
+        CACHE PATH ""
+    )
 endif()
 
 include(CMakePackageConfigHelpers)
@@ -20,7 +20,7 @@ install(
 )
 
 install(
-    TARGETS macro-player_macro-player
+    TARGETS macro-player
     EXPORT macro-playerTargets
     RUNTIME #
     COMPONENT macro-player_Runtime
@@ -66,5 +66,5 @@ install(
 )
 
 if(PROJECT_IS_TOP_LEVEL)
-  include(CPack)
+    include(CPack)
 endif()
